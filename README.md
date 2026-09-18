@@ -78,7 +78,7 @@ Vercel project, **Settings**, **Environment Variables**. None are required. With
 | `BYLINE_NOTIFY` | `you@yourdomain.com` or `https://hooks.slack.com/...` | where to tell you it was opened. An email address or a Slack/Discord webhook URL; it works out which |
 | `BYLINE_RESEND_KEY` | `re_xxxxxxxx` | free [Resend](https://resend.com) key. Only needed if you put an email address above |
 | `BYLINE_RECIPIENTS` | `Acme Team,Beta Co` | optional. Only these names can trigger a notification. Stops name spoofing; it is not a rate limit |
-| `BYLINE_TOKENS` | `3f9c2b7e1d4a8f60b2c5e7d9a1f3b4c6:Acme Team` | comma-separated `key:Recipient Name` pairs. Setting this turns on gated mode |
+| `BYLINE_TOKENS` | `3f9c2b7e1d4a8f60b2c5e7d9a1f3b4c6:Acme Team` | comma-separated `key:Recipient Name` pairs; the name is required. Setting this turns on gated mode |
 | `BYLINE_SECRET` | any long random string | optional. Signs the "already notified" cookie. If unset, your Resend key or webhook URL is used |
 
 **Generate keys, don't invent them.** There is no limit on guesses, so a short key is a weak lock. `openssl rand -hex 16`, or a password manager's generator set to 32 letters and digits.
