@@ -18,11 +18,11 @@ What does exist: a short-lived cookie on the reader's browser so you aren't emai
 
 ## Setup
 
-Everything here protects the **deployed site**, not the **repository** the file sits in. A public repo means the document is downloadable from `raw.githubusercontent.com` with no key, no stamp and no notification. Deploy, make the repo private, then add the document. Never the other way round.
+Everything here protects the **deployed site**, not the **repository** the file sits in. A public repo means the document is downloadable from `raw.githubusercontent.com` with no key, no stamp and no notification. Deploy, confirm the repo is private, then add the document. Never the other way round.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/LFGAmy/byline)
 
-**Without a terminal:** [docs/SETUP.md](docs/SETUP.md) walks through deploy, make it private, upload a PDF, put your name on it, send. It also answers what it costs, what to do when the page is blank, and the other questions people actually ask.
+**Without a terminal:** [docs/SETUP.md](docs/SETUP.md) walks through deploy, confirm it's private, upload a PDF, put your name on it, send, and lock it if you need to. It also answers what it costs, what to do when the page is blank, and the other questions people actually ask.
 
 **With one:**
 
@@ -93,7 +93,7 @@ If `BYLINE_TOKENS` is set but nothing valid parses out of it, say a space where 
 
 **Slack or Discord.** Paste an incoming webhook URL. No email service, no extra account.
 
-**Email.** Your address in `BYLINE_NOTIFY`, a free [Resend](https://resend.com) key in `BYLINE_RESEND_KEY`. The free plan covers 3,000 emails a month. It sends from `onboarding@resend.dev`, a shared address Resend provides so new accounts work immediately, so there are no DNS records to add. Because it's a shared sender, open your own link once and check your spam folder; if it landed there, mark it not spam.
+**Email.** Your address in `BYLINE_NOTIFY`, a free [Resend](https://resend.com) key in `BYLINE_RESEND_KEY`. The free plan covers 3,000 emails a month. It sends from `onboarding@resend.dev`, a shared address Resend provides so new accounts work immediately, so there are no DNS records to add. The catch: that shared sender only delivers to the address you signed up to Resend with, so `BYLINE_NOTIFY` must be that address until you verify a domain of your own there. Open your own link once and check your spam folder; if it landed there, mark it not spam.
 
 > **Subject:** Byline: Acme Team opened your document
 >
@@ -163,7 +163,7 @@ The edges, including the ones I can't close.
 - **Open mode's stamp can be removed by the reader,** because it comes from the address bar. In gated mode the name can't be changed, but a reader with a valid key can still fetch the raw file, so "cannot be removed" is only true of the page as served.
 - **Crawler blocking only stops crawlers that tell the truth.** Anything willing to lie about its user agent walks past it. In gated mode the token gate catches it; in open mode nothing does. Tidiness, not defence. A side effect: the match includes the bare word `bot`, so Slack, Discord and LinkedIn link previews are refused too, and your link shows no preview card when pasted.
 - **No rate limit on anything.** Key guesses are unlimited, so use generated keys. In open mode anyone with the link can post the "opened" report, and neither the daily cookie nor the allowlist stops a script from doing it fifty times, which on Resend's free tier means your notifications go quiet for the day. If that matters, use gated mode.
-- **Filenames are guessable in open mode.** Host two documents and switch with `?doc=` and anyone holding one link can try the other name. Use one deployment per document, or gated mode.
+- **Filenames are guessable in open mode.** Host two documents and switch with `?doc=` and anyone holding one link can try the other name. Gated mode doesn't change this: any valid key opens every file in the deployment. Use one deployment per client.
 - **No expiry, and updates are silent.** A link works until you remove the document or the key. Committing a new file replaces the old one under the same address, so you can't tell which version a given recipient saw.
 - **This is not DRM or encryption.** It's access control plus attribution, which is a smaller claim and an achievable one.
 - **No page-level analytics, on purpose.** [DocSend](https://docsend.com) and [Papermark](https://github.com/mfts/papermark) will tell you how long someone spent on slide seven. That means a database holding other people's reading behaviour, and that's a different product with a privacy policy attached. If that's what you need, use them. They're good.
