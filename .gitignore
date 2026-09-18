@@ -1,0 +1,8 @@
+.vercel
+node_modules
+.env
+.env.local
+.DS_Store
+
+# your own gated documents — never published to the repo
+_my-deck/

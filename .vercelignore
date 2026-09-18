@@ -1,0 +1,8 @@
+# Not needed at runtime. Keeps the repo's own documentation and tests from being served as pages.
+README.md
+LICENSE
+docs/
+tests/
+.github/
+package-lock.json
+_my-deck/

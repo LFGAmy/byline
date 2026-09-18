@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Byline — demo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0A0D0D;color:#F5F7F6;
+  -webkit-font-smoothing:antialiased;line-height:1.6}
+.slide{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:72px 28px;
+  max-width:820px;margin:0 auto;border-bottom:1px solid #1A211D}
+.eyebrow{color:#26BD6C;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px}
+h1{font-size:clamp(34px,7vw,60px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:20px}
+h2{font-size:clamp(26px,5vw,40px);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:18px}
+p{color:#9CA3AF;font-size:17px;margin-bottom:16px;max-width:62ch}
+p.big{color:#E5E7EB;font-size:20px}
+b{color:#F5F7F6}
+.g{color:#26BD6C}
+ol{margin:8px 0 0;padding:0;list-style:none;counter-reset:n}
+ol li{counter-increment:n;position:relative;padding-left:46px;margin-bottom:22px;color:#9CA3AF;font-size:17px;max-width:62ch}
+ol li:before{content:counter(n);position:absolute;left:0;top:-2px;width:30px;height:30px;border:1px solid #26BD6C;
+  color:#26BD6C;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.note{border-left:2px solid #26BD6C;padding:2px 0 2px 18px;margin:26px 0;color:#E5E7EB;font-size:18px;max-width:62ch}
+.muted{color:#4B5563;font-size:13px;margin-top:40px}
+code{background:#141A17;border:1px solid #262E29;padding:2px 7px;font-size:14px;color:#26BD6C;font-family:ui-monospace,monospace}
+</style></head><body>
+
+<section class="slide">
+  <div class="eyebrow">Byline</div>
+  <h1>your work, sent<br>as a page.</h1>
+  <p class="big">share work as a page instead of a file, so it stays attributed to you.</p>
+  <div class="muted">scroll ↓ &nbsp;·&nbsp; and look at the corners of this page</div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">the problem</div>
+  <h2>a file is a copy, not a view</h2>
+  <p>attach it and a copy exists that you can't see. forwarded, saved, reused, and you've no way of knowing where it went.</p>
+  <p>fine for most things. less fine for the work you send before anything is signed.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">how it works</div>
+  <h2>four layers, one of which actually matters</h2>
+  <ol>
+    <li><b>the token gate.</b> no valid key means the document is <b class="g">never served</b>. not blurred, not hidden behind a modal. never sent. this is the one that stops scrapers.</li>
+    <li><b>bot blocking.</b> GPTBot, ClaudeBot, CCBot, PerplexityBot, Bytespider, curl, python-requests and the rest get a 403 before the token check even runs.</li>
+    <li><b>noindex everywhere.</b> meta tag, response header, and a robots.txt that names AI training crawlers one by one.</li>
+    <li><b>per-recipient watermark.</b> every view is stamped with the name of the person you gave the key to.</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">the honest part</div>
+  <h2>it cannot stop a screenshot</h2>
+  <p>nobody's can. that's a browser limitation, and any tool that tells you otherwise is lying to you.</p>
+  <div class="note">so instead of pretending, byline makes every screenshot <b class="g">traceable</b>. that's the difference between a feature and a fix.</div>
+  <p>give each person their own key. a shared key tells you a leak happened. individual keys tell you whose it was.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">setup</div>
+  <h2>about ten minutes</h2>
+  <p>deploy to vercel, set <code>BYLINE_TOKENS</code> to a list of <code>key:Name</code> pairs, drop your document in as <code>index.html</code>, send the link.</p>
+  <p>revoking is deleting a line and redeploying. the link stops working about a minute later, including for anyone it was forwarded to.</p>
+  <p style="margin-top:28px"><b>open source, MIT.</b> take it, fork it, ship it. github.com/LFGAmy/byline</p>
+  <div class="muted">built by Amy Mayernik · lfgamy.com</div>
+</section>
+
+<!-- Byline watermark. Keep these two lines when you replace this page with your own. -->
+<div id="wm-layer" aria-hidden="true" style="display:none;position:fixed;inset:0;z-index:9999;pointer-events:none;"></div>
+<script type="module" src="/watermark.js"></script>
+</body></html>

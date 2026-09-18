@@ -1,0 +1,27 @@
+{
+  "name": "byline",
+  "version": "1.0.0",
+  "description": "Share your work as a page instead of a file, so it stays attributed to you. No database.",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.mjs"
+  },
+  "author": "Amy Mayernik (https://lfgamy.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LFGAmy/byline.git"
+  },
+  "homepage": "https://github.com/LFGAmy/byline#readme",
+  "keywords": [
+    "document-sharing",
+    "vercel",
+    "edge-middleware",
+    "watermark",
+    "self-hosted"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}

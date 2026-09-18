@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Document</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0A0D0D;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#F5F7F6;-webkit-font-smoothing:antialiased}
+#bar{position:fixed;top:0;left:0;right:0;height:46px;background:rgba(10,13,13,.92);backdrop-filter:blur(8px);
+ border-bottom:1px solid #1A211D;display:flex;align-items:center;gap:12px;padding:0 16px;z-index:100;font-size:12px}
+#bar .mk{width:18px;height:18px;border:2px solid #26BD6C;border-radius:2px;position:relative;flex:0 0 auto}
+#bar .mk:before,#bar .mk:after{content:"";position:absolute;left:3px;right:3px;height:1.5px;background:#26BD6C}
+#bar .mk:before{top:3.5px}#bar .mk:after{bottom:3.5px}
+#bar b{color:#26BD6C;letter-spacing:1.6px;font-size:10px;text-transform:uppercase}
+#bar .who{color:#6B7280;margin-left:auto;text-align:right}
+#pages{padding:70px 16px 60px;display:flex;flex-direction:column;align-items:center;gap:18px}
+#pages canvas{max-width:100%;height:auto;box-shadow:0 2px 24px rgba(0,0,0,.6);display:block}
+#msg{padding:120px 24px;text-align:center;color:#6B7280;font-size:14px;line-height:1.7}
+#msg code{background:#141A17;border:1px solid #262E29;padding:2px 7px;color:#26BD6C;font-family:ui-monospace,monospace}
+</style></head><body>
+
+<div id="bar"><span class="mk"></span><b>Byline</b><span class="who" id="who"></span></div>
+<div id="pages"></div>
+<div id="msg" style="display:none"></div>
+
+<!-- Per-recipient watermark overlay. Keep this block. -->
+<div id="wm-layer" data-ink="dark" aria-hidden="true" style="display:none;position:fixed;inset:0;z-index:9999;pointer-events:none;"></div>
+
+<script type="module" src="/viewer.js"></script>
+</body></html>
